@@ -354,9 +354,9 @@ function removeBanner() {
 }
 
 function getBuiltinBannerHTML() {
-  return '<table cellpadding="0" cellspacing="0" border="0" width="500">'
+  return '<table cellpadding="0" cellspacing="0" border="0" width="100%">'
     + '<tr><td style="padding:0;">'
-    + '<img src="images/Signature_Banner.png" width="500" style="display:block;border:0;">'
+    + '<img src="images/Signature_Banner.png" width="100%" style="display:block;border:0;height:auto;">'
     + '</td></tr></table>';
 }
 
@@ -374,48 +374,49 @@ function buildSignatureHTML() {
     contactLines += '<tr><td style="padding:0;font-size:12px;color:#4a8c52;font-style:italic;white-space:nowrap;">'
       + title + (dept ? ' &ndash; ' + dept : '') + '</td></tr>';
   }
-  contactLines += '<tr><td style="padding:4px 0 0;font-size:12px;color:#444;line-height:1.6;">';
+  contactLines += '<tr><td style="padding:4px 0 0;font-size:12px;color:#444;line-height:1.6;white-space:nowrap;">';
   if (phone) {
     contactLines += 'Cell: <a href="tel:' + phone + '" style="color:#444;text-decoration:none;">' + phone + '</a><br/>';
   }
   contactLines += 'Web: <a href="' + web + '" target="_blank" style="color:#2e6b35;text-decoration:none;">' + web.replace('https://','') + '</a>';
   contactLines += '</td></tr>';
 
-  // Banner row
-  var bannerRow = '';
+  // Banner block - in its own single-column row, never touches the top row columns
+  var bannerBlock = '';
   if (includeBanner) {
     if (bannerType === 'builtin') {
-      bannerRow = '<tr><td colspan="2" style="padding-top:10px;">' + getBuiltinBannerHTML() + '</td></tr>';
+      bannerBlock = '<tr><td style="padding-top:10px;">' + getBuiltinBannerHTML() + '</td></tr>';
     } else if (customDataURL) {
-      bannerRow = '<tr><td colspan="2" style="padding-top:10px;">'
+      bannerBlock = '<tr><td style="padding-top:10px;">'
         + '<a href="' + web + '" target="_blank" style="display:block;">'
-        + '<img src="' + customDataURL + '" alt="Banner" width="500" style="max-width:500px;width:100%;height:auto;display:block;"/>'
+        + '<img src="' + customDataURL + '" alt="Banner" width="100%" style="width:100%;height:auto;display:block;"/>'
         + '</a></td></tr>';
     }
   }
 
-  return '<table cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,sans-serif;font-size:13px;color:#1a1a1a;line-height:1.4;border-collapse:collapse;">'
-  // Top row: logo left, details right
-  + '<tr>'
-  // Logo cell
-  + '<td style="vertical-align:middle;padding-right:14px;border-right:2px solid #2e6b35;">'
-  + '<img src="images/logo.png" alt="Seasons Orchards" width="90" style="display:block;border:0;"/>'
-  + '</td>'
-  // Details cell
-  + '<td style="vertical-align:middle;padding-left:14px;">'
-  + '<table cellpadding="0" cellspacing="0" border="0">'
-  + '<tr><td style="padding:0;font-size:14px;font-weight:700;color:#1e3a1e;white-space:nowrap;">' + (name || 'Your Name') + '</td></tr>'
-  + contactLines
-  + '</table>'
-  + '</td>'
-  + '</tr>'
-  // Banner row at bottom
-  + bannerRow
-  // Eco line
-  + '<tr><td colspan="2" style="padding-top:8px;border-top:1px solid #e0dbd2;">'
-  + '<p style="margin:4px 0 0;font-size:9px;color:#3D6932;">Please consider the environment before printing this email.</p>'
-  + '</td></tr>'
-  + '</table>';
+  // Inner top row: logo + details (fixed, never stretched by banner)
+  var topRow = '<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">'
+    + '<tr>'
+    + '<td style="vertical-align:middle;padding-right:14px;border-right:2px solid #2e6b35;">'
+    + '<img src="images/logo.png" alt="Seasons Orchards" width="90" style="display:block;border:0;"/>'
+    + '</td>'
+    + '<td style="vertical-align:middle;padding-left:14px;">'
+    + '<table cellpadding="0" cellspacing="0" border="0">'
+    + '<tr><td style="padding:0;font-size:14px;font-weight:700;color:#1e3a1e;white-space:nowrap;">' + (name || 'Your Name') + '</td></tr>'
+    + contactLines
+    + '</table>'
+    + '</td>'
+    + '</tr>'
+    + '</table>';
+
+  // Outer single-column wrapper — banner goes below as its own row
+  return '<table cellpadding="0" cellspacing="0" border="0" width="1" style="font-family:Arial,sans-serif;font-size:13px;color:#1a1a1a;line-height:1.4;border-collapse:collapse;">'
+    + '<tr><td style="padding:0;">' + topRow + '</td></tr>'
+    + bannerBlock
+    + '<tr><td style="padding-top:8px;border-top:1px solid #e0dbd2;">'
+    + '<p style="margin:0;font-size:9px;color:#3D6932;">Please consider the environment before printing this email.</p>'
+    + '</td></tr>'
+    + '</table>';
 }
 
 function liveUpdate() {
