@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Email Signature Generator — Seasons Orchards</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <!-- ✅ reCAPTCHA script goes here -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -161,12 +163,13 @@
     }
     @keyframes fadeSlide { from{ opacity:0; transform:translateY(10px); } to{ opacity:1; transform:translateY(0); } }
     .animate-in { animation: fadeSlide 0.35s ease forwards; }
+	
   </style>
 </head>
 <body>
 
 <header>
-  <div class="logo-mark">&#127822;</div>
+  <div class="logo-mark">&#129361;</div>
   <div>
     <h1>Seasons Orchards &mdash; Signature Generator</h1>
     <p>Build your professional email signature in seconds</p>
@@ -227,42 +230,14 @@
             <td style="padding:12px 16px 8px 16px;">
               <table cellpadding="0" cellspacing="0" border="0" width="100%">
                 <tr>
-                  <td style="vertical-align:middle;width:48%;">
-                    <p style="margin:0;font-family:'Comic Sans MS',cursive,sans-serif;font-style:italic;font-size:12px;color:#2e6b35;font-weight:700;line-height:1.5;">Finest Natural Produce<br/>from Kenya &amp; Tanzania</p>
-                    <p style="margin:5px 0 0;font-size:18px;">&#x1F951;</p>
-                  </td>
-                  <td style="vertical-align:middle;text-align:right;width:52%;">
-                    <table cellpadding="0" cellspacing="0" border="0" align="right">
-                      <tr>
-                        <td style="padding:0 4px;text-align:center;vertical-align:middle;">
-                          <div style="width:40px;height:40px;border-radius:50%;border:2px solid #2e6b35;text-align:center;display:table;">
-                            <div style="display:table-cell;vertical-align:middle;font-size:8px;font-weight:700;color:#2e6b35;line-height:1.2;">GLOBAL<br/>G.A.P.</div>
-                          </div>
-                        </td>
-                        <td style="padding:0 4px;text-align:center;vertical-align:middle;">
-                          <div style="width:40px;height:40px;border-radius:50%;border:2px solid #1a5276;text-align:center;display:table;">
-                            <div style="display:table-cell;vertical-align:middle;font-size:7px;font-weight:700;color:#1a5276;line-height:1.3;">GRASP<br/><span style="font-size:6px;font-weight:400;">Global G.A.P.</span></div>
-                          </div>
-                        </td>
-                        <td style="padding:0 4px;text-align:center;vertical-align:middle;">
-                          <div style="width:40px;height:40px;border-radius:50%;border:2px solid #c0392b;text-align:center;display:table;">
-                            <div style="display:table-cell;vertical-align:middle;font-size:8px;font-weight:700;color:#c0392b;line-height:1.3;">ECO<br/>CERT&#174;</div>
-                          </div>
-                        </td>
+                  <td style="padding:0;">
+  <img src="C:\Users\Obaid\Downloads\images\Signature_Banner.png"
+       alt="Company Banner"
+       width="100%"
+       style="display:block;border:0;width:100%;max-width:600px;height:auto;">
+</td>
                       </tr>
                     </table>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:0 16px 12px 16px;">
-              <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                <tr>
-                  <td style="background:#5c4e38;padding:14px 10px;border-radius:6px;text-align:center;position:relative;overflow:hidden;">
-                    <p style="margin:0 0 2px;font-family:Arial Black,Impact,sans-serif;font-size:26px;font-weight:900;letter-spacing:10px;color:#8dc63f;text-shadow:1px 2px 0 rgba(0,0,0,0.5);">SEASONS</p>
-                    <p style="margin:0;font-family:Arial,sans-serif;font-size:11px;font-weight:400;letter-spacing:7px;color:#d4c9a8;text-shadow:1px 1px 0 rgba(0,0,0,0.4);">ORCHARDS</p>
                   </td>
                 </tr>
               </table>
@@ -292,7 +267,7 @@
         <button class="remove-banner" id="remove-banner-btn" onclick="removeBanner()" style="display:none;">&#10005; Remove banner</button>
       </div>
     </div>
-
+<div class="g-recaptcha" data-sitekey="6Ld7msssAAAAAGsb9EpJ_5n77S8JAaHUiV57hIdM"></div>
     <button class="btn-generate" onclick="generateSignature()">&#9889; Generate Signature</button>
   </div>
 
@@ -378,38 +353,10 @@ function removeBanner() {
 }
 
 function getBuiltinBannerHTML() {
-  return '<table cellpadding="0" cellspacing="0" border="0" width="500" style="font-family:Arial,sans-serif;background:#ffffff;max-width:500px;">'
-    + '<tr><td style="padding:14px 16px 8px 16px;">'
-    + '<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr>'
-    + '<td style="vertical-align:middle;width:48%;">'
-    + '<p style="margin:0;font-family:\'Comic Sans MS\',cursive;font-style:italic;font-size:12px;color:#2e6b35;font-weight:700;line-height:1.5;">Finest Natural Produce<br/>from Kenya &amp; Tanzania</p>'
-    + '<p style="margin:5px 0 0;font-size:18px;">&#x1F951;</p>'
-    + '</td>'
-    + '<td style="vertical-align:middle;text-align:right;width:52%;">'
-    + '<table cellpadding="0" cellspacing="0" border="0" align="right"><tr>'
-    + '<td style="padding:0 4px;text-align:center;">'
-    + '<div style="width:40px;height:40px;border-radius:50%;border:2px solid #2e6b35;display:table;">'
-    + '<div style="display:table-cell;vertical-align:middle;font-size:8px;font-weight:700;color:#2e6b35;line-height:1.2;">GLOBAL<br/>G.A.P.</div></div></td>'
-    + '<td style="padding:0 4px;text-align:center;">'
-    + '<div style="width:40px;height:40px;border-radius:50%;border:2px solid #1a5276;display:table;">'
-    + '<div style="display:table-cell;vertical-align:middle;font-size:7px;font-weight:700;color:#1a5276;line-height:1.3;">GRASP<br/><span style="font-size:6px;font-weight:400;">Global G.A.P.</span></div></div></td>'
-    + '<td style="padding:0 4px;text-align:center;">'
-    + '<div style="width:40px;height:40px;border-radius:50%;border:2px solid #c0392b;display:table;">'
-    + '<div style="display:table-cell;vertical-align:middle;font-size:8px;font-weight:700;color:#c0392b;line-height:1.3;">ECO<br/>CERT&#174;</div></div></td>'
-    + '</tr></table>'
-    + '</td></tr></table>'
-    + '</td></tr>'
-    + '<tr><td style="padding:0 16px 12px 16px;">'
-    + '<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr>'
-    + '<td style="background:#5c4e38;padding:16px 10px;border-radius:6px;text-align:center;">'
-    + '<p style="margin:0 0 3px;font-family:Arial Black,Impact,sans-serif;font-size:28px;font-weight:900;letter-spacing:12px;color:#8dc63f;text-shadow:1px 2px 0 rgba(0,0,0,0.5);">SEASONS</p>'
-    + '<p style="margin:0;font-family:Arial,sans-serif;font-size:11px;font-weight:400;letter-spacing:7px;color:#d4c9a8;text-shadow:1px 1px 0 rgba(0,0,0,0.4);">ORCHARDS</p>'
-    + '</td></tr></table>'
-    + '</td></tr>'
-    + '<tr><td style="padding:0 16px 10px;text-align:center;">'
-    + '<p style="margin:0;font-size:10px;color:#2e6b35;font-style:italic;">Please consider the environment before printing this email</p>'
-    + '</td></tr>'
-    + '</table>';
+  return '<table cellpadding="0" cellspacing="0" border="0" width="500">'
+    + '<tr><td style="padding:0;">'
+    + '<img src="images/Signature_Banner.png" width="500" style="display:block;border:0;">'
+    + '</td></tr></table>';
 }
 
 function buildSignatureHTML() {
@@ -433,28 +380,34 @@ function buildSignatureHTML() {
   }
 
   return '<table cellpadding="0" cellspacing="0" border="0" style="font-family:Georgia,serif;font-size:14px;color:#1a1a1a;line-height:1.5;border-collapse:collapse;max-width:520px;">'
-    + '<tr>'
-    + '<td style="padding-right:18px;vertical-align:top;border-right:3px solid #2e6b35;">'
-    + '<table cellpadding="0" cellspacing="0" border="0"><tr><td style="text-align:center;">'
-    + '<div style="width:68px;height:68px;background:#2e6b35;border-radius:50%;display:table;text-align:center;margin:0 auto;">'
-    + '<div style="display:table-cell;vertical-align:middle;font-family:Arial Black,sans-serif;font-size:10px;font-weight:900;color:#8dc63f;letter-spacing:1px;line-height:1.3;">SEA<br/>SONS</div>'
-    + '</div></td></tr></table>'
-    + '</td>'
-    + '<td style="padding-left:18px;vertical-align:top;">'
-    + '<p style="margin:0;font-size:17px;font-weight:700;color:#1e3a1e;letter-spacing:0.01em;">' + (name || 'Your Name') + '</p>'
-    + (title ? '<p style="margin:3px 0 0;font-size:13px;font-weight:400;color:#4a8c52;font-style:italic;">' + title + (dept ? ' &bull; ' + dept : '') + '</p>' : '')
-    + '<p style="margin:10px 0 0;font-size:13px;color:#444;">'
-    + (phone ? '&#128222; <a href="tel:' + phone + '" style="color:#444;text-decoration:none;">' + phone + '</a><br/>' : '')
-    + '&#127760; <a href="' + web + '" target="_blank" style="color:#2e6b35;text-decoration:none;">' + web.replace('https://','') + '</a>'
-    + '</p>'
-    + '</td>'
-    + '</tr>'
-    + bannerRow
-    + '<tr><td colspan="2" style="padding-top:12px;">'
-    + '<p style="margin:0;font-size:10px;color:#aaa;border-top:1px solid #e0dbd2;padding-top:8px;">This email and any attachments are confidential and intended solely for the named recipient(s).</p>'
-    + '</td></tr>'
-    + '</table>';
-}
+  + '<tr>'
+  + '<td>'
+  + '<table cellpadding="0" cellspacing="0" border="0"><tr><td style="text-align:center;">'
+
+  // ✅ LOGO ADDED HERE (replaces SEA/SONS block)
+  + '<img src="images/logo.png" '
+  + 'alt="Company Logo" '
+  + 'width="100%" height="100%" '
+  + 'style="display:block;border:0;margin:0 auto;">'
+
+  + '</td></tr></table>'
+  + '</td>'
+
+  + '<td style="padding-left:18px;vertical-align:top;">'
+  + '<p style="margin:0;font-size:17px;font-weight:700;color:#1e3a1e;letter-spacing:0.01em;">' + (name || 'Your Name') + '</p>'
+  + (title ? '<p style="margin:3px 0 0;font-size:13px;font-weight:400;color:#4a8c52;font-style:italic;">' + title + (dept ? ' &ndash; ' + dept : '') + '</p>' : '')
+  + '<p style="margin:10px 0 0;font-size:13px;color:#444;">'
+  + (phone ? '&#128222; <a href="tel:' + phone + '" style="color:#444;text-decoration:none;">' + phone + '</a><br/>' : '')
+  + '&#127760; <a href="' + web + '" target="_blank" style="color:#2e6b35;text-decoration:none;">' + web.replace('https://','') + '</a>'
+  + '</p>'
+  + '</td>'
+  + '</tr>'
+  + bannerRow
+  + '<tr><td colspan="2" style="padding-top:12px;">'
+  + '<p style="margin:0;font-size:09px;color:#3D6932;border-top:0.5px solid #e0dbd2;padding-top:8px;">Please consider the environment before printing this email.</p>'
+  + '</td></tr>'
+  + '</table>';
+  }
 
 function liveUpdate() {
   var name = document.getElementById('f-name').value.trim();
@@ -535,5 +488,6 @@ dz.addEventListener('drop', function(e){
   }
 });
 </script>
+<script> function validateForm() { var response = grecaptcha.getResponse(); if (response.length === 0) { alert("Please verify you are not a robot"); return false; } return true; } </script>
 </body>
 </html>
